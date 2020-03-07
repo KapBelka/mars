@@ -155,5 +155,29 @@ def astronaut_selection():
         return "Форма отправлена"
 
 
+@app.route("/choice/<planet>")
+def choice(planet):
+    return f"""<!doctype html>
+                <html lang="ru">
+                  <head>
+                    <meta charset="utf-8">
+                    <link rel="stylesheet" 
+                    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+                    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+                    crossorigin="anonymous">
+                    <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                    <title>Колонизация</title>
+                  </head>
+                  <body>
+                    <h1>Моё предложение: {planet}<p></h1>
+                    <p class="alert alert-info" role="alert">Эта планета близка к земле;</p>
+                    <p class="alert alert-warning" role="alert">На ней много необходимых ресурсов;</p>
+                    <p class="alert alert-success" role="alert">На ней есть вода и атмосфера;</p>
+                    <p class="alert alert-primary" role="alert">На ней есть небольшое магнитное поле;</p>
+                    <p class="alert alert-danger" role="alert">Наконец, она просто красива!</p>
+                  </body>
+                </html>"""
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
